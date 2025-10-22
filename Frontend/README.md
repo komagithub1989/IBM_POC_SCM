@@ -1,1 +1,3 @@
-React + Axios, React Router, bootstrap
+CD Frontend/SCM
+NPM install
+NPM run dev

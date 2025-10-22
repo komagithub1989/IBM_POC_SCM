@@ -1,1 +1,2 @@
-ASP.NET Core (Web API) with Entity Framework Core
+Cd SCM_WebApi
+dotnet run 
