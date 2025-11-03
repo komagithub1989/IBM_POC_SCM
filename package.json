@@ -1,0 +1,18 @@
+{
+  "name": "ibm_poc_scm",
+  "version": "1.0.0",
+  "description": "Basic supply chain management system that tracks inventory levels across multiple warehouses. It should provide functionality to transfer products between warehouses, check stock levels,    and generate reports.",
+  "main": "index.js",
+  "scripts": {
+    "start:api": "cd backend/SCM_WebApi && dotnet run",
+    "start:react": "cd frontend/SCM && npm run dev",
+    "start:json": "cd json_server && npm run json:server",
+    "start:all": "concurrently -k -n API,REACT,JSON -c green,orange,yellow \"npm run start:api\" \"npm run start:react\" \"npm run start:json\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
