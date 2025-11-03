@@ -1,29 +1,25 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "JSON-Server",
-      "author": "Amit"
-    },
-    {
-      "id": 2,
-      "title": "Node.js",
-      "author": "Mohit"
-    }
+  "warehouses": [
+    { "id": 1, "name": "Warehouse A", "location": "Bengalore" },
+    { "id": 2, "name": "Warehouse B", "location": "Hyderbad" },
+    { "id": 3, "name": "Warehouse C", "location": "Mysore" },
+    { "id": 4, "name": "Warehouse D", "location": "Chennai" },
+    { "id": 5, "name": "Warehouse E", "location": "Mumbai" },
+    { "id": 6, "name": "Warehouse F", "location": "Delhi" }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "Great post!",
-      "postId": 1
-    },
-    {
-      "id": 2,
-      "body": "Informative!",
-      "postId": 2
-    }
+  "products": [
+    { "id": 1, "name": "Laptop", "price": "100" },
+    { "id": 2, "name": "TV", "price": "150" },
+    { "id": 3, "name": "Mobile", "price": "150" },
+    { "id": 4, "name": "Phone", "price": "150" },
+    { "id": 5, "name": "Refrigerators", "price": "150" },
+    { "id": 6, "name": "Washine Machine", "price": "150" }
   ],
-  "profile": {
-    "name": "Amit Kumar"
-  }
+  "inventory": [
+    { "warehouseId": 1, "productId": 1, "quantity": 100 },
+    { "warehouseId": 1, "productId": 2, "quantity": 200 },
+    { "warehouseId": 2, "productId": 2, "quantity": 200 },
+    { "warehouseId": 3, "productId": 3, "quantity": 400 },
+    { "warehouseId": 4, "productId": 4, "quantity": 300 }
+  ]
 }
