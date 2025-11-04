@@ -1,9 +1,12 @@
 using System;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SCM_WebApi.Controllers
 {
-    public class WarehouseController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class WarehouseController : ControllerBase
     {
-        
+
     }
 }

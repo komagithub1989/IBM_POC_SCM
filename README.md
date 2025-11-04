@@ -8,3 +8,6 @@ package.json in IBM_POC_SCM folder
 concurrently runs multiple commands at once.
 -k kills all when one exits.
 -n and -c just colorize output for clarity.
+
+
+npm install -g concurrently

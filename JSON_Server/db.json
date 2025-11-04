@@ -16,10 +16,10 @@
     { "id": 6, "name": "Washine Machine", "price": "150" }
   ],
   "inventory": [
-    { "warehouseId": 1, "productId": 1, "quantity": 100 },
-    { "warehouseId": 1, "productId": 2, "quantity": 200 },
-    { "warehouseId": 2, "productId": 2, "quantity": 200 },
-    { "warehouseId": 3, "productId": 3, "quantity": 400 },
-    { "warehouseId": 4, "productId": 4, "quantity": 300 }
+    { "id": "1-1", "warehouseId": 1, "productId": 1, "quantity": 100 },
+    { "id": "1-2", "warehouseId": 1, "productId": 2, "quantity": 200 },
+    { "id": "2-2", "warehouseId": 2, "productId": 2, "quantity": 200 },
+    { "id": "3-3", "warehouseId": 3, "productId": 3, "quantity": 400 },
+    { "id": "4-4", "warehouseId": 4, "productId": 4, "quantity": 300 }
   ]
 }

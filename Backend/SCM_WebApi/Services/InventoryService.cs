@@ -19,5 +19,39 @@ namespace SCM_WebApi.Services
             var inventory = await _httpClient.GetFromJsonAsync<List<InventoryItem>>($"{_baseUrl}/inventory");
             return inventory ?? new List<InventoryItem>();
         }
+
+        public async Task TransferAsync(int fromWarehouse, int toWarehouse, int productId, int quantity)
+        {
+            var inventory = await GetInventoryAsync();
+
+            var fromItem = inventory.FirstOrDefault(i => i.WarehouseId == fromWarehouse && i.ProductId == productId);
+            var toItem = inventory.FirstOrDefault(i => i.WarehouseId == toWarehouse && i.ProductId == productId);
+
+            if (fromItem == null || fromItem.Quantity < quantity)
+                throw new Exception("Insufficient stock in source warehouse");
+
+            fromItem.Quantity -= quantity;
+
+            if (toItem != null)
+                toItem.Quantity += quantity;
+            else
+                inventory.Add(new InventoryItem
+                {
+                    Id = $"{toWarehouse}_{productId}",
+                    WarehouseId = toWarehouse,
+                    ProductId = productId,
+                    Quantity = quantity
+                });
+
+            await SaveInventoryAsync(inventory);
+        }
+
+           private async Task SaveInventoryAsync(List<InventoryItem> inventory)
+        {
+            foreach (var item in inventory)
+            {
+                await _httpClient.PutAsJsonAsync($"{_baseUrl}/inventory/{item.Id}", item);
+            }
+        }
     }
 }
