@@ -10,17 +10,17 @@ const api = axios.create({
 });
 
 export const getInventory = async () => {
-  const response = await api.get("/inventory");
+  const response = await api.get("/Inventory/GetInventory");
   return response.data;
 };
 
 export const getProducts = async () =>{
-    const response = await api.get("/products");
+    const response = await api.get("/Product");
     return response.data;
 }
 
 export const getWarehouse = async () =>{
-    const response = await api.get("/warehouses");
+    const response = await api.get("/Warehouse");
     return response.data;
 }
 

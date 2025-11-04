@@ -7,7 +7,7 @@ using SCM_WebApi.Services;
 namespace SCM_WebApi.Controllers
 {
     [ApiController]
-    [Microsoft.AspNetCore.Mvc.Route("[controller]")]
+    [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
     public class InventoryController : ControllerBase
     {
         private readonly InventoryService _inventoryService;
@@ -15,8 +15,14 @@ namespace SCM_WebApi.Controllers
         {
             _inventoryService = inventoryService;
         }
-        [HttpGet(Name = "GetInventory")]
-        public async Task<IEnumerable<InventoryItem>> Get()
+        [HttpGet("GetInventory")]
+        public async Task<IEnumerable<InventoryItem>> GetInventories()
+        {
+            return await _inventoryService.GetInventoryAsync();
+        }
+
+         [HttpGet("GetInventory_v2")]
+        public async Task<IEnumerable<InventoryItem>> GetInventoriesV2()
         {
             return await _inventoryService.GetInventoryAsync();
         }
