@@ -14,6 +14,7 @@ function NavbarMenu() {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/" active={location.pathname === "/"}>Home</Nav.Link>
              <Nav.Link as={Link} to="/warehouse" active={location.pathname === "/warehouse"}>WareHouse</Nav.Link>
+             <Nav.Link as={Link} to="/products" active={location.pathname === "/warehouse"}>Products</Nav.Link>
             <Nav.Link as={Link} to="/transfers" active={location.pathname === "/transfers"}>Transfers</Nav.Link>
             <Nav.Link as={Link} to="/reports" active={location.pathname === "/reports"}>Reports</Nav.Link>
           </Nav>

@@ -14,6 +14,16 @@ export const getInventory = async () => {
   return response.data;
 };
 
+export const getProducts = async () =>{
+    const response = await api.get("/products");
+    return response.data;
+}
+
+export const getWarehouse = async () =>{
+    const response = await api.get("/warehouses");
+    return response.data;
+}
+
 export default api;
 
 //add more api calls here
