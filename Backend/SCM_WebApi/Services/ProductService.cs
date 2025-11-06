@@ -30,14 +30,12 @@ namespace SCM_WebApi.Services
             return await _httpClient.GetFromJsonAsync<Product>($"{_baseUrl}/products/{id}");
         }
 
-        // Optional: Update a product
         public async Task<bool> UpdateProductAsync(int id, Product updated)
         {
             var response = await _httpClient.PutAsJsonAsync($"{_baseUrl}/products/{id}", updated);
             return response.IsSuccessStatusCode;
         }
-
-        // Optional: Delete a product
+        
         public async Task<bool> DeleteProductAsync(int id)
         {
             var response = await _httpClient.DeleteAsync($"{_baseUrl}/products/{id}");
