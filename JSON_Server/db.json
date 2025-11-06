@@ -13,7 +13,13 @@
     { "id": 3, "name": "Mobile", "price": "150" },
     { "id": 4, "name": "Phone", "price": "150" },
     { "id": 5, "name": "Refrigerators", "price": "150" },
-    { "id": 6, "name": "Washine Machine", "price": "150" }
+    { "id": 6, "name": "Washine Machine", "price": "150" },
+     { "id": 7, "name": "Laptop-2", "price": "100" },
+    { "id": 8, "name": "TV-3", "price": "150" },
+    { "id": 9, "name": "Mobile-4", "price": "150" },
+    { "id": 10, "name": "Phone-5", "price": "150" },
+    { "id": 11, "name": "Refrigerators-6", "price": "150" },
+    { "id": 12, "name": "Washine Machine-7", "price": "150" }
   ],
   "inventory": [
     { "id": "1-1", "warehouseId": 1, "productId": 1, "quantity": 100 },
