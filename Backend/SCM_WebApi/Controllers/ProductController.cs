@@ -33,7 +33,7 @@ namespace SCM_WebApi.Controllers
         {
             var product = await _productService.UpdateProductAsync(id, updated);
 
-            if (product != null)
+            if (product)
                 return Ok(product);
 
             return BadRequest("Failed to update product");

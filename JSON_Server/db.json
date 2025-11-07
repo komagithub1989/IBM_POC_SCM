@@ -1,31 +1,128 @@
 {
   "warehouses": [
-    { "id": 1, "name": "Warehouse A", "location": "Bengalore" },
-    { "id": 2, "name": "Warehouse B", "location": "Hyderbad" },
-    { "id": 3, "name": "Warehouse C", "location": "Mysore" },
-    { "id": 4, "name": "Warehouse D", "location": "Chennai" },
-    { "id": 5, "name": "Warehouse E", "location": "Mumbai" },
-    { "id": 6, "name": "Warehouse F", "location": "Delhi" }
+    {
+      "id": "1",
+      "name": "Warehouse A",
+      "location": "Bengalore"
+    },
+    {
+      "id": "2",
+      "name": "Warehouse B",
+      "location": "Hyderbad"
+    },
+    {
+      "id": "3",
+      "name": "Warehouse C",
+      "location": "Mysore"
+    },
+    {
+      "id": "4",
+      "name": "Warehouse D",
+      "location": "Chennai"
+    },
+    {
+      "id": "5",
+      "name": "Warehouse E",
+      "location": "Mumbai"
+    },
+    {
+      "id": "6",
+      "name": "Warehouse F",
+      "location": "Delhi"
+    }
   ],
   "products": [
-    { "id": 1, "name": "Laptop", "price": "100" },
-    { "id": 2, "name": "TV", "price": "150" },
-    { "id": 3, "name": "Mobile", "price": "150" },
-    { "id": 4, "name": "Phone", "price": "150" },
-    { "id": 5, "name": "Refrigerators", "price": "150" },
-    { "id": 6, "name": "Washine Machine", "price": "150" },
-     { "id": 7, "name": "Laptop-2", "price": "100" },
-    { "id": 8, "name": "TV-3", "price": "150" },
-    { "id": 9, "name": "Mobile-4", "price": "150" },
-    { "id": 10, "name": "Phone-5", "price": "150" },
-    { "id": 11, "name": "Refrigerators-6", "price": "150" },
-    { "id": 12, "name": "Washine Machine-7", "price": "150" }
+    {
+      "id": "1",
+      "name": "Laptop",
+      "price": "100"
+    },
+    {
+      "id": "2",
+      "name": "TV",
+      "price": "150"
+    },
+    {
+      "id": "3",
+      "name": "Mobile",
+      "price": "150"
+    },
+    {
+      "id": "4",
+      "name": "Phone",
+      "price": "150"
+    },
+    {
+      "id": "5",
+      "name": "Refrigerators",
+      "price": "150"
+    },
+    {
+      "id": "6",
+      "name": "Washine Machine",
+      "price": "150"
+    },
+    {
+      "id": "7",
+      "name": "Laptop-2",
+      "price": "100"
+    },
+    {
+      "id": "8",
+      "name": "TV-3",
+      "price": "150"
+    },
+    {
+      "id": "9",
+      "name": "Mobile-4",
+      "price": "150"
+    },
+    {
+      "id": "10",
+      "name": "Phone-5",
+      "price": "150"
+    },
+    {
+      "id": "11",
+      "name": "Refrigerators-6",
+      "price": "150"
+    },
+    {
+      "id": "12",
+      "name": "Washine Machine-7",
+      "price": "150"
+    }
   ],
   "inventory": [
-    { "id": "1-1", "warehouseId": 1, "productId": 1, "quantity": 100 },
-    { "id": "1-2", "warehouseId": 1, "productId": 2, "quantity": 200 },
-    { "id": "2-2", "warehouseId": 2, "productId": 2, "quantity": 200 },
-    { "id": "3-3", "warehouseId": 3, "productId": 3, "quantity": 400 },
-    { "id": "4-4", "warehouseId": 4, "productId": 4, "quantity": 300 }
+    {
+      "id": "1-1",
+      "warehouseId": 1,
+      "productId": 1,
+      "quantity": 100
+    },
+    {
+      "id": "1-2",
+      "warehouseId": 1,
+      "productId": 2,
+      "quantity": 200
+    },
+    {
+      "id": "2-2",
+      "warehouseId": 2,
+      "productId": 2,
+      "quantity": 200
+    },
+    {
+      "id": "3-3",
+      "warehouseId": 3,
+      "productId": 3,
+      "quantity": 400
+    },
+    {
+      "id": "4-4",
+      "warehouseId": 4,
+      "productId": 4,
+      "quantity": 300
+    }
   ]
 }
