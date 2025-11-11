@@ -10,7 +10,7 @@ const api = axios.create({
 });
 
 export const getInventory = async () => {
-  const response = await api.get("/Inventory/GetInventory");
+  const response = await api.get("/Inventory/GetInventory_v2");
   return response.data;
 };
 

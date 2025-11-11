@@ -22,9 +22,9 @@ namespace SCM_WebApi.Controllers
         }
 
          [HttpGet("GetInventory_v2")]
-        public async Task<IEnumerable<InventoryItem>> GetInventoriesV2()
+        public async Task<IEnumerable<ExtendedInventoryItem>> GetInventoriesV2()
         {
-            return await _inventoryService.GetInventoryAsync();
+            return await _inventoryService.GetInventoryItemsAsync();
         }
     }
 }

@@ -20,6 +20,12 @@ namespace SCM_WebApi.Services
             return inventory ?? new List<InventoryItem>();
         }
 
+         public async Task<List<ExtendedInventoryItem>> GetInventoryItemsAsync()
+        {
+            var inventory = await _httpClient.GetFromJsonAsync<List<ExtendedInventoryItem>>($"{_baseUrl}/inventory?_expand=product&_expand=warehouse");
+            return inventory ?? new List<ExtendedInventoryItem>();
+        }
+
         public async Task TransferAsync(int fromWarehouse, int toWarehouse, int productId, int quantity)
         {
             var inventory = await GetInventoryAsync();
