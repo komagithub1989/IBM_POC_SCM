@@ -8,54 +8,75 @@
 
 import React, { useState } from "react";
 import { transferProduct } from "../services/api";
-import "../style/products.css"; // Same styling as Warehouse page
-
-function Transfers() {
+import "../style/products.css";
+ 
+function Transfers(props) {
   const [form, setForm] = useState({
-    fromWarehouse: "",
-    toWarehouse: "",
-    productId: "",
-    quantity: "",
+    FromWarehouse: "",
+    ToWarehouse: "",
+    ProductId: "",
+    Quantity: "",
   });
-
+ 
   const [message, setMessage] = useState("");
-  const [mode, setMode] = useState("form"); // Keeps structure similar to Warehouses
-
+  const [mode, setMode] = useState("form");
+ 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
+ 
   const handleTransfer = async (e) => {
     e.preventDefault();
     setMessage("Processing transfer...");
-
+ 
+    // Convert string inputs to numbers before sending to API
+    const payload = {
+      FromWarehouse: parseInt(form.FromWarehouse),
+      ToWarehouse: parseInt(form.ToWarehouse),
+      ProductId: parseInt(form.ProductId),
+      Quantity: parseInt(form.Quantity),
+    };
+ 
+    // Validate numbers
+    if (
+      isNaN(payload.FromWarehouse) ||
+      isNaN(payload.ToWarehouse) ||
+      isNaN(payload.ProductId) ||
+      isNaN(payload.Quantity)
+    ) {
+      setMessage("Please enter valid numbers for all fields.");
+      return;
+    }
+ 
     try {
-      const response = await transferProduct(form);
+      const response = await transferProduct(payload);
       setMessage(response.message || "Transfer successful!");
       setForm({
-        fromWarehouse: "",
-        toWarehouse: "",
-        productId: "",
-        quantity: "",
+        FromWarehouse: "",
+        ToWarehouse: "",
+        ProductId: "",
+        Quantity: "",
       });
+ 
+      if(props.onTransferSucess){
+        props.onTransferSucess();
+      }
     } catch (error) {
-      setMessage(error.message || "Transfer failed. Try again.");
+      // Show error from API if available
+      setMessage(error.response?.data?.error || "Transfer failed. Try again.");
     }
-
-    setTimeout(() => setMessage(""), 1500);
+ 
+    setTimeout(() => setMessage(""), 2500);
   };
-
+ 
   return (
     <div className="products-container">
       <div className="crud-panel">
-        <button
-          className="crud-action-btn"
-          onClick={() => setMode("form")}
-        >
+        <button className="crud-action-btn" onClick={() => setMode("form")}>
           🔄 Transfer Products
         </button>
       </div>
-
+ 
       <div className="table-panel">
         {mode === "form" && (
           <>
@@ -64,47 +85,47 @@ function Transfers() {
               <div className="form-group">
                 <label>From Warehouse:</label>
                 <input
-                  type="text"
-                  name="fromWarehouse"
-                  value={form.fromWarehouse}
+                  type="number"
+                  name="FromWarehouse"
+                  value={form.FromWarehouse}
                   onChange={handleChange}
                   required
                 />
               </div>
-
+ 
               <div className="form-group">
                 <label>To Warehouse:</label>
                 <input
-                  type="text"
-                  name="toWarehouse"
-                  value={form.toWarehouse}
+                  type="number"
+                  name="ToWarehouse"
+                  value={form.ToWarehouse}
                   onChange={handleChange}
                   required
                 />
               </div>
-
+ 
               <div className="form-group">
                 <label>Product ID:</label>
                 <input
                   type="number"
-                  name="productId"
-                  value={form.productId}
+                  name="ProductId"
+                  value={form.ProductId}
                   onChange={handleChange}
                   required
                 />
               </div>
-
+ 
               <div className="form-group">
                 <label>Quantity:</label>
                 <input
                   type="number"
-                  name="quantity"
-                  value={form.quantity}
+                  name="Quantity"
+                  value={form.Quantity}
                   onChange={handleChange}
                   required
                 />
               </div>
-
+ 
               <div className="form-buttons">
                 <button type="submit" className="crud-action-btn">
                   🚚 Transfer
@@ -114,10 +135,10 @@ function Transfers() {
                   className="crud-action-btn"
                   onClick={() =>
                     setForm({
-                      fromWarehouse: "",
-                      toWarehouse: "",
-                      productId: "",
-                      quantity: "",
+                      FromWarehouse: "",
+                      ToWarehouse: "",
+                      ProductId: "",
+                      Quantity: "",
                     })
                   }
                 >
@@ -125,7 +146,7 @@ function Transfers() {
                 </button>
               </div>
             </form>
-
+ 
             {message && <p className="message">{message}</p>}
           </>
         )}
@@ -133,6 +154,5 @@ function Transfers() {
     </div>
   );
 }
-
+ 
 export default Transfers;
-
