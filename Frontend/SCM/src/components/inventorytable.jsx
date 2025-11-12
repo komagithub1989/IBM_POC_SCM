@@ -11,9 +11,9 @@ function InventoryTable({ inventory }) {
       <table className="table table-striped mt-3">
         <thead>
           <tr>
-            <th>Warehouse ID</th>
+            {/* <th>Warehouse ID</th> */}
             <th>Warehouse Name</th>
-            <th>Product ID</th>
+            {/* <th>Product ID</th> */}
             <th>Product Name</th>
             <th>Quantity</th>
           </tr>
@@ -21,10 +21,10 @@ function InventoryTable({ inventory }) {
         <tbody>
           {inventory.map((item, index) => (
             <tr key={index}>
-              <td>{item.warehouseId}</td>
-              <td>{item.product.name}</td>
-              <td>{item.productId}</td>
+              {/* <td>{item.warehouseId}</td> */}
+              {/* <td>{item.productId}</td> */}
               <td>{item.warehouse.name}</td>
+              <td>{item.product.name}</td>
               <td>{item.quantity}</td>
             </tr>
           ))}

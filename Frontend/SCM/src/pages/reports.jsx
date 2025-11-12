@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import InventoryTable from "../components/inventorytable";
 import AggregatedReport from "../components/aggregatedreporttable";
-import { getInventory } from "../services/api";
+import { getInventory, getInventorySummary } from "../services/api";
 
 function Reports() {
   const [inventory, setInventory] = useState([]);
+   const [inventorySummary, setInventorySummary] = useState([]);
 
   useEffect(() => {
     getInventory()
@@ -12,14 +13,22 @@ function Reports() {
         setInventory(res);
       })
       .catch((err) => console.error("Error loading inventory:", err));
+
+
   }, []);
+
+  useEffect(() =>{
+     getInventorySummary().then((res)=>{
+      setInventorySummary(res)
+     }).catch((err) => console.error("Error loading inventory:", err));
+  },[]);
 
   return (
     <div>
-      <h3>Warehouse-level report</h3>
+      <h3>Warehouse-Level Report</h3>
       <InventoryTable inventory={inventory} />
-      <h3>Aggregated(Summary) Report</h3>
-      <AggregatedReport></AggregatedReport>
+      <h3>Aggregated Stock Summary</h3>
+      <AggregatedReport summary = {inventorySummary}></AggregatedReport>
     </div>
     
   );

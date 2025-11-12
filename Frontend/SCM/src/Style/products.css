@@ -1,0 +1,151 @@
+.products-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    padding: 30px 50px;
+    margin-left : -40px;
+    margin-right: -40px;
+    min-height: 80vh;
+    background: linear-gradient(to right, #ece9f7 0%, #f7f6f9 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.crud-panel {
+    width: 25%;
+    background: none; /* No background color */
+    color: #4a4e69;
+    padding: 28px 22px;
+    border-radius: 12px;
+    margin-right: 28px;
+    margin-left: -20px;
+    box-shadow: none; /* Remove box-shadow for a flat look, or adjust as needed */
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+.crud-action-btn {
+    color: #22223b;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 1.22rem;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    box-shadow: 0 3px 16px 0 rgba(135,135,165,0.06), 0 1.5px 8px 0 rgba(135,135,165,0.06);
+    letter-spacing: 0.02em;
+}
+
+    .crud-action-btn:hover, .crud-action-btn:focus {
+        background: #9400D3;
+        color: #fff;
+        box-shadow: 0 6px 22px 0 rgba(112,111,221,0.11);
+    }
+
+.table-panel {
+    width: 75%;
+    min-height: 700px;
+    background: #fafafc;
+    padding: 36px 48px;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(42,40,91,0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Panel form and form-group unchanged, but can tweak to match lighter scheme */
+.panel-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.panel-form label {
+    font-size: 1rem;
+    color: #4a4e69;
+    font-weight: 500;
+}
+
+.panel-form input {
+    padding: 10px;
+    border: 1.5px solid #c9ada7;
+    border-radius: 6px;
+    width: 320px;
+    font-size: 1rem;
+}
+
+.panel-form button[type="submit"] {
+    background: #4a4e69;
+    color: #fff;
+    padding: 10px 26px;
+    border: none;
+    border-radius: 6px;
+    margin-right: 15px;
+}
+
+.panel-form button[type="button"] {
+    background: #ece9f7;
+    color: #4a4e69;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 26px;
+    margin-right: 15px;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+    gap: 18px; /* Adjust gap as needed */
+    margin-top: 12px;
+    align-items: center;
+}
+
+.panel-form button:hover {
+    opacity: 0.92;
+}
+
+.message {
+    margin-top: 16px;
+    color: #186c46;
+}
+
+/* ---- TABLE COLORS ---- */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+    .custom-table th, .custom-table td {
+        text-align: left;
+        padding: 12px 10px;
+        border-bottom: 1px solid #ede7f6;
+        font-size: 1rem;
+    }
+
+    .custom-table th {
+        background: #ece9f7;
+        color: #4a4e69;
+        font-weight: 600;
+    }
+
+    .custom-table tr:nth-child(even) {
+        background: #f0f0f0; /* subtle light grey for even rows */
+    }
+
+    .custom-table tr:nth-child(odd) {
+        background: #fff; /* white for odd rows */
+    }

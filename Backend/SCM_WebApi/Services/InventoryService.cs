@@ -4,7 +4,7 @@ using SCM_WebApi.Models;
 
 namespace SCM_WebApi.Services
 {
-    
+
     public class InventoryService
     {
         private readonly HttpClient _httpClient;
@@ -20,7 +20,7 @@ namespace SCM_WebApi.Services
             return inventory ?? new List<InventoryItem>();
         }
 
-         public async Task<List<ExtendedInventoryItem>> GetInventoryItemsAsync()
+        public async Task<List<ExtendedInventoryItem>> GetInventoryItemsAsync()
         {
             var inventory = await _httpClient.GetFromJsonAsync<List<ExtendedInventoryItem>>($"{_baseUrl}/inventory?_expand=product&_expand=warehouse");
             return inventory ?? new List<ExtendedInventoryItem>();
@@ -52,12 +52,26 @@ namespace SCM_WebApi.Services
             await SaveInventoryAsync(inventory);
         }
 
-           private async Task SaveInventoryAsync(List<InventoryItem> inventory)
+        private async Task SaveInventoryAsync(List<InventoryItem> inventory)
         {
             foreach (var item in inventory)
             {
                 await _httpClient.PutAsJsonAsync($"{_baseUrl}/inventory/{item.Id}", item);
             }
+        }
+
+        public async Task<IEnumerable<object>> GetInventorySummary()
+        {
+            var inventory = await _httpClient.GetFromJsonAsync<List<ExtendedInventoryItem>>(
+        $"{_baseUrl}/inventory?_expand=product&_expand=warehouse");
+            var summary = inventory?
+            .GroupBy(i => i.Product?.Name)
+            .Select(g => new
+            {
+                Product = g.Key,
+                TotalQuantity = g.Sum(x => x.Quantity)
+            });
+            return summary ?? null;
         }
     }
 }

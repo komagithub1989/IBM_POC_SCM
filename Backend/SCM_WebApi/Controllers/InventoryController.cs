@@ -21,10 +21,16 @@ namespace SCM_WebApi.Controllers
             return await _inventoryService.GetInventoryAsync();
         }
 
-         [HttpGet("GetInventory_v2")]
+        [HttpGet("GetInventory_v2")]
         public async Task<IEnumerable<ExtendedInventoryItem>> GetInventoriesV2()
         {
             return await _inventoryService.GetInventoryItemsAsync();
+        }
+
+        [HttpGet("Summery")]
+        public async Task<IEnumerable<object>> GetInventorySummary()
+        {
+            return await _inventoryService.GetInventorySummary();
         }
     }
 }

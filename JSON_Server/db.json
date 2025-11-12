@@ -3,12 +3,7 @@
     {
       "id": 1,
       "name": "Warehouse A",
-      "location": "Bengalore"
-    },
-    {
-      "id": 2,
-      "name": "Warehouse B",
-      "location": "Hyderbad"
+      "location": "Bengalore_1"
     },
     {
       "id": 3,
@@ -35,7 +30,7 @@
     {
       "id": 1,
       "name": "Laptop",
-      "price": "100"
+      "price": "400"
     },
     {
       "id": 2,
@@ -98,17 +93,11 @@
       "id": "1-1",
       "warehouseId": 1,
       "productId": 1,
-      "quantity": 100
+      "quantity": 98
     },
     {
       "id": "1-2",
       "warehouseId": 1,
-      "productId": 2,
-      "quantity": 200
-    },
-    {
-      "id": "2-2",
-      "warehouseId": 2,
       "productId": 2,
       "quantity": 200
     },
