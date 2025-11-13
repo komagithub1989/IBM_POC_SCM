@@ -43,7 +43,7 @@ namespace SCM_WebApi.Services
             else
                 inventory.Add(new InventoryItem
                 {
-                    Id = $"{toWarehouse}_{productId}",
+                    Id = $"{toWarehouse}-{productId}",
                     WarehouseId = toWarehouse,
                     ProductId = productId,
                     Quantity = quantity
@@ -56,7 +56,23 @@ namespace SCM_WebApi.Services
         {
             foreach (var item in inventory)
             {
-                await _httpClient.PutAsJsonAsync($"{_baseUrl}/inventory/{item.Id}", item);
+                var encodedId = Uri.EscapeDataString(item.Id);
+                var putResponse = await _httpClient.PutAsJsonAsync($"{_baseUrl}/inventory/{encodedId}", item);
+
+                if (!putResponse.IsSuccessStatusCode)
+                {
+                    // If not found, create new item
+                    if (putResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    {
+                        var postResponse = await _httpClient.PostAsJsonAsync($"{_baseUrl}/inventory", item);
+                        postResponse.EnsureSuccessStatusCode();
+                    }
+                    else
+                    {
+                        // Throw if something else went wrong
+                        putResponse.EnsureSuccessStatusCode();
+                    }
+                }
             }
         }
 

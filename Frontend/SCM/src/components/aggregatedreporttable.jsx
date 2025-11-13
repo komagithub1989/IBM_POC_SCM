@@ -1,6 +1,5 @@
 
 function AggregatedReport({ summary }){
-    console.log(summary)
      return (
         <>
              <table className="table table-striped mt-3">

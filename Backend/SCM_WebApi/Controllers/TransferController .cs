@@ -19,6 +19,7 @@ namespace SCM_WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Transfer([FromBody] TransferRequest req)
         {
+           
             try
             {
                 await _inventoryService.TransferAsync(req.FromWarehouse, req.ToWarehouse, req.ProductId, req.Quantity);
